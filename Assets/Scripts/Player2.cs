@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Player : MonoBehaviour
+public class Player2 : MonoBehaviour
 {
     public float velocidade = 10f;
     public Rigidbody rb;
@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
 
         //rb.MovePosition(transform.position + movement);
 
-        //Detecta a direção que o jogador está olhando
+        ////Detecta a direção que o jogador está olhando
         //if (Input.GetAxis("Horizontal") != 0)
         //{
         //    rotacao.SetLookRotation(new Vector3(Input.GetAxis("Horizontal"), 0, 0));
@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
             {
                 rb.velocity = new Vector3(0, pulo, 0);
             }
-        }       
+        }
     }
 
 }

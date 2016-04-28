@@ -4,9 +4,10 @@ using System.Collections;
 public class Shooter : MonoBehaviour
 {
 
-    public GameObject shot;
-    public float bulletSpeed;
-    public KeyCode shootKey;
+    public Transform bala;
+    public Transform faisca;
+    public Transform pontoDeImpacto;
+
     // Use this for initialization
     void Start()
     {
@@ -16,37 +17,50 @@ public class Shooter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Vector3 dir = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
+        Vector3 dir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
-        //if(dir != Vector3.zero)
+        if (dir != Vector3.zero)
+        {
+            transform.forward = Vector3.Normalize(dir);
+        }
+
+        if(Input.GetButtonDown("Fire1"))
+        {
+            Instantiate(bala, transform.position, Quaternion.identity);
+        }
+
+        //if(Input.GetButtonDown("Fire1"))
         //{
-        //    transform.forward = Vector3.Normalize(dir);
-        //}        
+        //    RaycastHit bala = new RaycastHit();
 
-        if(Input.GetKeyDown(KeyCode.Tab))
-        {
-            RaycastHit tiro = new RaycastHit();
+        //    if (Physics.Raycast(transform.position, transform.forward, out bala))
+        //    {
+        //        Instantiate(faisca, bala.collider.gameObject.transform.position, Quaternion.identity);
 
-            if (Physics.Raycast(transform.position, transform.forward, out tiro))
-            {
-                if(tiro.collider.tag == "Superman")
-                {
-                    tiro.collider.gameObject.SetActive(false);
-                }
-            }
-        }
+        //        if (bala.collider.tag == "Superman")
+        //        {
+        //            Instantiate(pontoDeImpacto, bala.collider.gameObject.transform.position, Quaternion.identity);
+        //            bala.collider.gameObject.SetActive(false);
+        //            Destroy(GameObject.Find("faisca(Clone)"), 1.0f);
+        //            Destroy(GameObject.Find("pontoDeImpacto(Clone)"), 1.0f);
+        //        }
+        //    }
+        //}
+
+        Destroy(GameObject.Find("faisca(Clone)"), 1.0f);
+        Destroy(GameObject.Find("pontoDeImpacto(Clone)"), 1.0f);
 
 
-        if (Input.GetKeyDown(shootKey))
-        {
-            GameObject instance = Instantiate(shot, transform.position, transform.rotation) as GameObject;
+        //if (Input.GetKeyDown(shootKey))
+        //{
+        //    GameObject instance = Instantiate(shot, transform.position, transform.rotation) as GameObject;
 
-            Rigidbody bulletRigidbody = instance.GetComponent<Rigidbody>();
-            if (bulletRigidbody != null)
-            {
-                bulletRigidbody.AddForce(instance.transform.forward * bulletSpeed);
-            }
-        }
+        //    Rigidbody bulletRigidbody = instance.GetComponent<Rigidbody>();
+        //    if (bulletRigidbody != null)
+        //    {
+        //        bulletRigidbody.AddForce(instance.transform.forward * bulletSpeed);
+        //    }
+        //}
     }
 
 }

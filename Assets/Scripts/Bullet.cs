@@ -10,36 +10,60 @@ public class Bullet : MonoBehaviour
     }
 
     [SerializeField]
-    private float speed;
+    private float bulletSpeed;
 
     private Rigidbody myRigidBody;
 
-    //Decide qual direção o Hadouken é lançado de acordo de onde o player está olhando.
-    private Vector2 direction;
+
+
+    //Decide qual direção o tiro é lançado de acordo de onde o player está olhando.
+    //private Vector2 direction;
 
 
     // Use this for initialization
     void Start()
     {
+        GameObject player;
+        player = GameObject.Find("Camera");
         myRigidBody = GetComponent<Rigidbody>();
+        myRigidBody.AddForce(player.transform.forward* bulletSpeed);
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        myRigidBody.velocity = direction * speed;
+        Destroy(gameObject, 5.0f);
     }
 
-    //Ao ser instanciado no player, dá a direção da onde o hadouken deve avançar de acordo com para onde o player está olhando.
-    public void Initialize(Vector3 direction)
+    void OnTriggerEnter(Collider outro)
     {
-        this.direction = direction;
+        if(outro.collider.tag == "Superman")
+        {
+
+        }
     }
 
-    //Essa função executa a ação contida em seu escopo quando o gameObject ficar invisível para as camêras. ( Sair da tela).
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "bullet")
-            Destroy(gameObject);
-    }
+    //void FixedUpdate()
+    //{
+    //    myRigidBody.velocity = direction * bulletSpeed;
+    //}
+
+    ////Ao ser instanciado no player, dá a direção da onde o hadouken deve avançar de acordo com para onde o player está olhando.
+    //public void Initialize(Vector3 direction)
+    //{
+    //    this.direction = direction;
+    //}
+
+    ////Essa função executa a ação contida em seu escopo quando o gameObject ficar invisível para as camêras. ( Sair da tela).
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.tag == "bullet")
+    //        Destroy(gameObject);
+    //}
+
+    ////Essa função executa a ação contida em seu escopo quando o gameObject ficar invisível para as camêras. ( Sair da tela).
+    //void OnBecameInvisible()
+    //{
+    //    Destroy(gameObject);
+    //}
 
 }
