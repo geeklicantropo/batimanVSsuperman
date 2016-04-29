@@ -28,14 +28,6 @@ public class Player : MonoBehaviour
 
         transform.Translate(hAxis * velocidade * Time.deltaTime, 0, vAxis * velocidade * Time.deltaTime);
 
-        //rb.MovePosition(transform.position + movement);
-
-        //Detecta a direção que o jogador está olhando
-        //if (Input.GetAxis("Horizontal") != 0)
-        //{
-        //    rotacao.SetLookRotation(new Vector3(Input.GetAxis("Horizontal"), 0, 0));
-        //    transform.rotation = rotacao;
-        //}
 
         //Esse pedaço do código detecta quando o jogador pressiona o botão de pulo.
         if (Input.GetButtonDown("Jump"))

@@ -4,43 +4,54 @@ using System.Collections;
 public class Bullet : MonoBehaviour
 {
 
-    void OnCollisionEnter(Collision other)
-    {
-        Destroy(other.gameObject);
-    }
-
     [SerializeField]
     private float bulletSpeed;
-
     private Rigidbody myRigidBody;
 
-
-
-    //Decide qual direção o tiro é lançado de acordo de onde o player está olhando.
-    //private Vector2 direction;
-
-
-    // Use this for initialization
+    
     void Start()
     {
         GameObject player;
         player = GameObject.Find("Camera");
         myRigidBody = GetComponent<Rigidbody>();
-        myRigidBody.AddForce(player.transform.forward* bulletSpeed);
+        myRigidBody.AddForce(player.transform.forward * bulletSpeed);
     }
 
     void Update()
     {
-        Destroy(gameObject, 5.0f);
+        Destroy(gameObject, 1f);
     }
 
-    void OnTriggerEnter(Collider outro)
+    void OnBecameInvisible()
     {
-        if(outro.collider.tag == "Superman")
-        {
-
-        }
+        Destroy(gameObject);
     }
+
+    //void OnCollisionEnter(Collider colisor)
+    //{
+    //    colisor.GetComponent<Collider>();
+    //    if(colisor.tag == "Superman")
+    //    {
+    //        colisor.gameObject.SetActive(false);
+    //        Destroy(this.gameObject);
+    //    }
+    //}
+
+    void OnTriggerEnter(Collider other)
+    {
+        Destroy(this.gameObject);
+        if (other.tag == "Superman")
+        {
+            other.gameObject.SetActive(false);            
+        }
+        
+    }
+
+    //Decide qual direção o tiro é lançado de acordo de onde o player está olhando.
+    //private Vector3 direction;
+
+
+    // Use this for initialization
 
     //void FixedUpdate()
     //{
@@ -61,9 +72,8 @@ public class Bullet : MonoBehaviour
     //}
 
     ////Essa função executa a ação contida em seu escopo quando o gameObject ficar invisível para as camêras. ( Sair da tela).
-    //void OnBecameInvisible()
-    //{
-    //    Destroy(gameObject);
-    //}
+
+
+
 
 }
