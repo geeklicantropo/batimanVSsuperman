@@ -3,9 +3,11 @@ using System.Collections;
 
 public class Player : MonoBehaviour
 {
-    public float velocidade = 10f;
+    [SerializeField]
+    private float velocidade = 10f;
     public Rigidbody rb;
-    public float pulo = 15f;
+    [SerializeField]
+    private float pulo = 15f;
     private bool noChao = false;
     private bool temParede;
     private Quaternion rotacao;

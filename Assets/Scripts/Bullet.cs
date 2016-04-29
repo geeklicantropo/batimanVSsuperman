@@ -3,12 +3,16 @@ using System.Collections;
 
 public class Bullet : MonoBehaviour
 {
-
     [SerializeField]
     private float bulletSpeed;
     private Rigidbody myRigidBody;
+    public Transform pontoDeImpacto;
 
-    
+    private healthSuperman damg;
+    [SerializeField]
+    private int bulletDamage;
+    private float Timer;
+
     void Start()
     {
         GameObject player;
@@ -27,53 +31,40 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 
-    //void OnCollisionEnter(Collider colisor)
+    //void OnTriggerEnter(Collider other)
     //{
-    //    colisor.GetComponent<Collider>();
-    //    if(colisor.tag == "Superman")
+    //    Destroy(this.gameObject);
+    //    if (other.tag == "Superman")
     //    {
-    //        colisor.gameObject.SetActive(false);
-    //        Destroy(this.gameObject);
+
+    //        Instantiate(pontoDeImpacto, transform.position, Quaternion.identity);
+    //        other.gameObject.SetActive(false);            
     //    }
+
     //}
 
     void OnTriggerEnter(Collider other)
     {
         Destroy(this.gameObject);
-        if (other.tag == "Superman")
+        if (other.tag == "Superman" )
         {
-            other.gameObject.SetActive(false);            
+            Instantiate(pontoDeImpacto, transform.position, Quaternion.identity);
+            damg = other.GetComponent<healthSuperman>();
+            
+            damg.Damage(bulletDamage);
+            //Timer = Time.time + 0.5f;
+           
+            //other.gameObject.SetActive(false);
         }
-        
     }
 
-    //Decide qual direção o tiro é lançado de acordo de onde o player está olhando.
-    //private Vector3 direction;
-
-
-    // Use this for initialization
-
-    //void FixedUpdate()
+    //void OnTriggerStay(Collider other)
     //{
-    //    myRigidBody.velocity = direction * bulletSpeed;
+    //    //Destroy(this.gameObject);
+    //    if (other.tag == "Superman" && Timer < Time.time)
+    //    {
+    //        damg.Damage(bulletDamage);
+    //        Timer = Time.time + 0.5f;
+    //    }
     //}
-
-    ////Ao ser instanciado no player, dá a direção da onde o hadouken deve avançar de acordo com para onde o player está olhando.
-    //public void Initialize(Vector3 direction)
-    //{
-    //    this.direction = direction;
-    //}
-
-    ////Essa função executa a ação contida em seu escopo quando o gameObject ficar invisível para as camêras. ( Sair da tela).
-    //void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.tag == "bullet")
-    //        Destroy(gameObject);
-    //}
-
-    ////Essa função executa a ação contida em seu escopo quando o gameObject ficar invisível para as camêras. ( Sair da tela).
-
-
-
-
 }
