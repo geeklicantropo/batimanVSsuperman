@@ -19,7 +19,7 @@ public class Shooter2 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.End))
         {
-            Instantiate(laser, transform.position, Quaternion.identity);
+            Instantiate(laser, transform.position, Quaternion.Euler(0,90,90));
             Instantiate(spark, transform.position, Quaternion.identity);
         }
         Destroy(GameObject.Find("spark(Clone)"), 0.5f);

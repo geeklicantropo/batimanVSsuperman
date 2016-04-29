@@ -16,19 +16,19 @@ public class laser: MonoBehaviour
     void Start()
     {
         GameObject player;
-        player = GameObject.Find("Camera");
+        player = GameObject.Find("Camera2");
         myRigidBody = GetComponent<Rigidbody>();
         myRigidBody.AddForce(player.transform.forward * laserSpeed);
     }
 
     void Update()
     {
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, 10.0f);
     }
 
     void OnBecameInvisible()
     {
-        Destroy(gameObject);
+        Destroy(gameObject, 5.0f);
     }
 
     //void OnTriggerEnter(Collider other)

@@ -23,12 +23,12 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, 10.0f);
     }
 
     void OnBecameInvisible()
     {
-        Destroy(gameObject);
+        Destroy(gameObject,5.0f);
     }
 
     //void OnTriggerEnter(Collider other)
