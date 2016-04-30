@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Bullet : MonoBehaviour
 {
@@ -9,8 +10,7 @@ public class Bullet : MonoBehaviour
     public Transform pontoDeImpacto;
 
     private healthSuperman damg;
-    [SerializeField]
-    private int bulletDamage;
+    public int bulletDamage;
     private float Timer;
 
     void Start()
@@ -31,40 +31,24 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject,5.0f);
     }
 
-    //void OnTriggerEnter(Collider other)
-    //{
-    //    Destroy(this.gameObject);
-    //    if (other.tag == "Superman")
-    //    {
-
-    //        Instantiate(pontoDeImpacto, transform.position, Quaternion.identity);
-    //        other.gameObject.SetActive(false);            
-    //    }
-
-    //}
-
     void OnTriggerEnter(Collider other)
     {
         Destroy(this.gameObject);
         if (other.tag == "Superman" )
         {
             Instantiate(pontoDeImpacto, transform.position, Quaternion.identity);
-            damg = other.GetComponent<healthSuperman>();
-            
+            damg = other.GetComponent<healthSuperman>();            
             damg.Damage(bulletDamage);
+            
+
             //Timer = Time.time + 0.5f;
-           
+
             //other.gameObject.SetActive(false);
-        }
+        }        
     }
 
-    //void OnTriggerStay(Collider other)
+    //void OnTriggerExit()
     //{
-    //    //Destroy(this.gameObject);
-    //    if (other.tag == "Superman" && Timer < Time.time)
-    //    {
-    //        damg.Damage(bulletDamage);
-    //        Timer = Time.time + 0.5f;
-    //    }
+    //    Destroy(GameObject.Find("pontoDeImpacto(Clone)"), 1.0f);
     //}
 }

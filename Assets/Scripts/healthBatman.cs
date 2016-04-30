@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class healthBatman : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class healthBatman : MonoBehaviour
     private int currentHealth;
     [SerializeField]
     private float timer;
+
+    [SerializeField]
+    private Slider healthBar;
 
     [SerializeField]
     private int life = 3;
@@ -30,10 +34,10 @@ public class healthBatman : MonoBehaviour
             //timer = Time.time + 3;
             currentHealth = 0;
         }
-        else if (currentHealth < 0)
-        {
-            currentHealth = 0;
-        }
+        //else if (currentHealth < 0)
+        //{
+        //    currentHealth = 0;
+        //}
 
         if (dead == true)
         {
@@ -52,5 +56,7 @@ public class healthBatman : MonoBehaviour
     public void Damage(int damage)
     {
         currentHealth = currentHealth - damage;
+        if (currentHealth <= 0)
+            healthBar.value = maxHealth;
     }
 }

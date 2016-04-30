@@ -87,6 +87,10 @@
     <Compile Include="Assets\Day Night Cycle\Scripts\DayNightController.cs" />
     <Compile Include="Assets\Day Night Cycle\Scripts\DemoScripts\RoatateCamera.cs" />
     <Compile Include="Assets\Destroyed_city_FREE\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
+    <Compile Include="Assets\GradientGUIBars\Script\ControlGUIScript.cs" />
+    <Compile Include="Assets\GradientGUIBars\Script\GUIBarScript.cs" />
+    <Compile Include="Assets\GradientGUIBars\Script\MoreButtonScript.cs" />
+    <Compile Include="Assets\GradientGUIBars\Script\MoveCameraScript.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\Player2.cs" />
@@ -108,6 +112,7 @@
     <None Include="Assets\Day Night Cycle\ReadMe.txt" />
     <None Include="Assets\Destroyed_city_FREE\Destroyed_city_FREE_Info.txt" />
     <None Include="Assets\Destroyed_city_FREE\Shaders\AlphaTest-DiffuseDoubleSide.shader" />
+    <None Include="Assets\GradientGUIBars\ReadMe\AboutFonts.txt" />
     <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />

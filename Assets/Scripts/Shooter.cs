@@ -23,6 +23,7 @@ public class Shooter : MonoBehaviour
             Instantiate(faisca, transform.position, Quaternion.identity);
         }
         Destroy(GameObject.Find("faisca(Clone)"), 0.5f);
+        Destroy(GameObject.Find("pontoDeImpacto(Clone)"), 1.0f);
     }
 }
 

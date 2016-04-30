@@ -23,6 +23,7 @@ public class Shooter2 : MonoBehaviour
             Instantiate(spark, transform.position, Quaternion.identity);
         }
         Destroy(GameObject.Find("spark(Clone)"), 0.5f);
+        Destroy(GameObject.Find("pontoDeImpactoBatman(Clone)"), 1.0f);
     }
 }
 

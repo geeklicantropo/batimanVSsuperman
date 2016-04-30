@@ -50,13 +50,19 @@ public class laser: MonoBehaviour
         {
             Instantiate(pontoDeImpactoBatman, transform.position, Quaternion.identity);
             damg = other.GetComponent<healthBatman>();
-
             damg.Damage(laserDamage);
+            
+
             //Timer = Time.time + 0.5f;
 
             //other.gameObject.SetActive(false);
         }
+        
     }
+    //void OnTriggerExit()
+    //{
+    //    Destroy(GameObject.Find("pontoDeImpactoBatman(Clone)"), 1.0f);
+    //}
 
     //void OnTriggerStay(Collider other)
     //{
