@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using XboxCtrlrInput;
 using System.Collections;
 
 public class Player : MonoBehaviour
@@ -11,6 +12,7 @@ public class Player : MonoBehaviour
     private bool noChao = false;
     private bool temParede;
     private Quaternion rotacao;
+    public XboxController controller;
 
     void Start()
     {
@@ -25,14 +27,14 @@ public class Player : MonoBehaviour
 
 
         ////Esse pedaço do código trabalha com movimentação
-        float hAxis = Input.GetAxis("Horizontal");
-        float vAxis = Input.GetAxis("Vertical");
+        float hAxis = XCI.GetAxis(XboxAxis.LeftStickX, controller);
+        float vAxis = XCI.GetAxis(XboxAxis.LeftStickY, controller);
 
         transform.Translate(hAxis * velocidade * Time.deltaTime, 0, vAxis * velocidade * Time.deltaTime);
 
 
         //Esse pedaço do código detecta quando o jogador pressiona o botão de pulo.
-        if (Input.GetButtonDown("Jump"))
+        if (XCI.GetButtonDown(XboxButton.A, controller))
         {
             if (noChao == true)
             {

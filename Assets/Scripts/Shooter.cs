@@ -17,6 +17,7 @@ public class Shooter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetButtonDown("Fire1"))
         {
             Instantiate(bala, transform.position, Quaternion.identity);
