@@ -63,10 +63,5 @@ public class healthSuperman : MonoBehaviour
         healthBar.value = currentHealth;
         if (currentHealth <= 0)
             healthBar.value = maxHealth;
-
-        //if(life == 0)
-        //{
-        //    Destroy(healthBar);
-        //}
     }    
 }

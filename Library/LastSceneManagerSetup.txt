@@ -1,4 +1,4 @@
 sceneSetups:
-- path: D:/batimanVSsuperman-master/Assets/MENU.unity
+- path: Assets/batman.unity
   isLoaded: 1
   isActive: 1

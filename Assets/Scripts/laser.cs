@@ -31,18 +31,6 @@ public class laser: MonoBehaviour
         Destroy(gameObject, 5.0f);
     }
 
-    //void OnTriggerEnter(Collider other)
-    //{
-    //    Destroy(this.gameObject);
-    //    if (other.tag == "Superman")
-    //    {
-
-    //        Instantiate(pontoDeImpacto, transform.position, Quaternion.identity);
-    //        other.gameObject.SetActive(false);            
-    //    }
-
-    //}
-
     void OnTriggerEnter(Collider other)
     {
         Destroy(this.gameObject);
@@ -59,18 +47,4 @@ public class laser: MonoBehaviour
         }
         
     }
-    //void OnTriggerExit()
-    //{
-    //    Destroy(GameObject.Find("pontoDeImpactoBatman(Clone)"), 1.0f);
-    //}
-
-    //void OnTriggerStay(Collider other)
-    //{
-    //    //Destroy(this.gameObject);
-    //    if (other.tag == "Superman" && Timer < Time.time)
-    //    {
-    //        damg.Damage(bulletDamage);
-    //        Timer = Time.time + 0.5f;
-    //    }
-    //}
 }

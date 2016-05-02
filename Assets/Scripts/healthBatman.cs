@@ -28,7 +28,7 @@ public class healthBatman : MonoBehaviour
 
     void Update()
     {
-        if (currentHealth < 0 && dead == false)
+        if (currentHealth <= 0 && dead == false)
         {
             dead = true;
             //timer = Time.time + 3;
@@ -46,6 +46,7 @@ public class healthBatman : MonoBehaviour
                 dead = false;
                 currentHealth = maxHealth;
                 transform.position = spawn;
+
                 life = life - 1;
                 if (life == 0)
                     Destroy(gameObject);
@@ -56,6 +57,7 @@ public class healthBatman : MonoBehaviour
     public void Damage(int damage)
     {
         currentHealth = currentHealth - damage;
+        healthBar.value = currentHealth;
         if (currentHealth <= 0)
             healthBar.value = maxHealth;
     }
